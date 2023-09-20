@@ -2,24 +2,29 @@
 
 We present Maple code for the computations of singularities of celestial surfaces
 that are represented in terms of their parametric types.
+
 For the definitions and details we refer to the article
+
 [Self-intersections of surfaces that contain two circles through each point](https://arxiv.org/abs/?).
+
 This code is also used for
+
 [Topological types of the pointwise product of two general circles in the unit quaternions](https://arxiv.org/abs/?).
 
-For running the code copy paste the Maple code at
+Copy paste the Maple code at
 [ParametricTypes.m](https://github.com/niels-lubbes/celestial-singularities/blob/master/ParametricTypes.m)
 into a [Maple](https://www.maplesoft.com/products/maple/) session.
-The code has been tested in Maple 13.
+This code has been tested in Maple 13.
 
 A parametric type corresponds to a birational map from P1xP1
 to a surface X that lies in S3, where P1xP1 denote the
 product of the projective line with itself and S3 denotes the projectivized unit 3-sphere.
-After taking an affine chart, we obtain a map from complex plane C2 to S3.
-We compute the components
-of the preimage in C2 of the singular components in X
-such that a general complex point of a singular component in X
+After taking an affine chart, we obtain a map from complex plane C2 to X.
+We compute the components of the preimage in C2 of the singular components in X
+such that a general complex point of this component in X
 has at least two preimages in the parameter domain C2.
+
+See also the documentation in [ParametricTypes.m](https://github.com/niels-lubbes/celestial-singularities/blob/master/ParametricTypes.m).
 
 ```Maple
 allParamTypes();

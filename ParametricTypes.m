@@ -27,12 +27,15 @@
 #
 
 #
-# A parametric type corresponds to a birational map from P1xP1
-# to a surface X that lies in the projective 3-sphere S3.
-# Taking an affine chart, we obtain a map from complex plane C2 to S3.
-# We compute the preimage in C2 of the singular components in X
-# whose general point has at least two preimages in C2.
+# Short description (see articles for details):
 #
+# A parametric type corresponds to a birational map from P1xP1 to a surface X that lies in S3,
+# where P1xP1 denotes the product of the projective line with itself and
+# S3 denotes the projectivized unit 3-sphere.
+# After taking an affine chart, we obtain a map from complex plane C2 to X.
+# We compute the components of the preimage in C2 of the singular components in X
+# such that a general complex point of this component in X
+# has at least two preimages in the parameter domain C2.
 #
 
 restart;
