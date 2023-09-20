@@ -7,7 +7,7 @@ For the definitions and details we refer to the article
 
 [Self-intersections of surfaces that contain two circles through each point](https://arxiv.org/abs/?).
 
-This code is also used for
+This code is also used for the article
 
 [Topological types of the pointwise product of two general circles in the unit quaternions](https://arxiv.org/abs/?).
 
