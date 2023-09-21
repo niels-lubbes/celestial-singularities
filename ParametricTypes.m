@@ -1,18 +1,16 @@
-############################################################################
-#                                                                          #
-# Maple 13 computations for the following articles by Niels Lubbes         #
-#                                                                          #
-# Self-intersections of surfaces that contain                              #
-#   two circles through each point                                         #
-#                                                                          #
-# Topological types of the pointwise product                               #
-#   of two general circles in the unit quaternions.                        #
-#                                                                          #
-# Last update: 20.09.2023                                                  #
-#                                                                          #
-# To run copy past the code into a Maple session.                          #
-#                                                                          #
-############################################################################
+##############################################################################
+#                                                                            #
+# Maple 13 computations for the following article by Niels Lubbes            #
+#                                                                            #
+# Self-intersections of surfaces that contain two circles through each point #
+#                                                                            #
+#                                                                            #
+# To run either copy past the code into a Maple session or execute the       #
+# the following Linux command:                                               #
+#                                                                            #
+# $ maple < ParametricTypes.m                                                #
+#                                                                            #
+##############################################################################
 
 #
 # This program is free software: you can redistribute it and/or modify
@@ -29,7 +27,8 @@
 #
 # Short description (see articles for details):
 #
-# A parametric type corresponds to a birational map from P1xP1 to a surface X that lies in S3,
+# A parametric type corresponds to a birational map
+# from P1xP1 to a surface X that lies in S3,
 # where P1xP1 denotes the product of the projective line with itself and
 # S3 denotes the projectivized unit 3-sphere.
 # After taking an affine chart, we obtain a map from complex plane C2 to X.
@@ -175,20 +174,21 @@ getPreSing := proc(paramType::list, paramTypeName::string:="Unknown")
     #
     # > getPreSing(D5c,"D5c"):
     #
-    #       parametric type="D5c" value=[1, 0, 0, 0, 1, 5/2, 0, 0]
-    #           bideg=[0, 1], mult=1, factor=8/5+RootOf(5*_Z^2+8*_Z+5)+t
-    #           bideg=[0, 1], mult=1, factor=t-RootOf(5*_Z^2+8*_Z+5)
-    #           bideg=[0, 1], mult=1, factor=t-RootOf(33*_Z^2+40*_Z+33)
-    #           bideg=[0, 1], mult=1, factor=t+40/33+RootOf(33*_Z^2+40*_Z+33)
-    #           bideg=[1, 0], mult=2, factor=s-4/3-5/3*RootOf(5*_Z^2+8*_Z+5)
-    #           bideg=[1, 0], mult=2, factor=s+4/3+5/3*RootOf(5*_Z^2+8*_Z+5)
+    # parametric type="D5c" value=[1, 0, 0, 0, 1, 5/2, 0, 0]
+    #         bideg=[0, 1], mult=1, factor=t-RootOf(5*_Z^2+8*_Z+5), sing=[1]
+    #         bideg=[0, 1], mult=1, factor=8/5+RootOf(5*_Z^2+8*_Z+5)+t, sing=[1]
+    #         bideg=[0, 1], mult=1, factor=t+40/33+RootOf(33*_Z^2+40*_Z+33), sing=[1]
+    #         bideg=[0, 1], mult=1, factor=t-RootOf(33*_Z^2+40*_Z+33), sing=[1]
+    #         bideg=[1, 0], mult=2, factor=s-4/3-5/3*RootOf(5*_Z^2+8*_Z+5), sing=[1]
+    #         bideg=[1, 0], mult=2, factor=s+4/3+5/3*RootOf(5*_Z^2+8*_Z+5), sing=[1]
     #
     #
-    local fctList,i;
+    local fctList,i,gb;
     fctList := getFactorsElimId(getPolyList(paramType)):
-    printf("\t parametric type=%a value=%a\n", paramTypeName, paramType);
+    printf("parametric type=%a value=%a\n", paramTypeName, paramType);
     for i from 1 to nops(fctList) do
-        printf("\t\t bideg=%a, mult=%a, factor=%a\n",[degree(fctList[i][1],s),degree(fctList[i][1],t)],fctList[i][2],fctList[i][1]):
+        gb:=Groebner[Basis]([poly,diff(poly,s),diff(poly,t)], plex(s,t)):
+        printf("\tbideg=%a, sing=%a, mult=%a, factor=%a\n",[degree(fctList[i][1],s),degree(fctList[i][1],t)],gb,fctList[i][2],fctList[i][1]):
     end do;
 end proc:
 
