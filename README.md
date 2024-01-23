@@ -5,7 +5,7 @@ that are represented in terms of their parametric types.
 
 For the definitions and details we refer to the article
 
-[Self-intersections of surfaces that contain two circles through each point](https://arxiv.org/abs/?).
+[Self-intersections of surfaces that contain two circles through each point](https://nielslubbes.com/pp/preprint4-sing.pdf).
 
 See also the documentation in [ParametricTypes.m](https://github.com/niels-lubbes/celestial-singularities/blob/master/ParametricTypes.m).
 
